@@ -9,36 +9,27 @@ int main()
 	int count = 0;
 	int required = 5;
 	for (int i = 0; i < 500; i++) {
-		required = 5;
 		for (char f = 'a'; f <= 'z'; f++) {
-			for (int k1 = 0; k1 < 32; k1++) {
-				if (input[i][0][k1] == f) {
-					for (int k2 = 0; k2 < 32; k2++) {
-						if (input[i][1][k2] == f || input[i][1][0] == '\0') {
-							for (int k3 = 0; k3 < 32; k3++) {
-								if (input[i][2][k3] == f || input[i][2][0] == '\0') {
-									for (int k4 = 0; k4 < 32; k4++) {
-										if (input[i][3][k4] == f || input[i][3][0] == '\0') {
-											for (int k5 = 0; k5 < 32; k5++) {
-												if (input[i][4][k5] == f || input[i][4][0] == '\0') {
-													count++;
-													cout << "Match at i= " << i << ", matched char: " << f << "\n";
-													goto nextchar;
-												}
-											}
-										}
-
-									}
-								}
-							}
-						}
+			required = 5;
+			for (int l = 0; l < 5; l++) {
+				for (int t = 0; t < 32; t++) {
+					if (input[i][l][t] == f || (input[i][l][0] == '\0' && l > 0)) {
+						required--;
+					}
+					if (required == 0) {
+						required == 5;
+						count++;
+						cout << "Match at i= " << i << ", matched char: " << f << "\n";
+						goto nextchar;
+					}	
+					if (input[i][l][t] == f || (input[i][l][0] == '\0' && l > 0)) {
+						goto next;
 					}
 				}
+			next: cout;
 			}
 		nextchar: cout;
 		}
 	}
 	cout << count;
 }
-
-
