@@ -12,10 +12,10 @@ int main()
 			for (int t = 0; t < 128; t++) {
 				if (input[i][t] == f) {
 					count++;
-					goto endloop;
+					goto nextchar;
 				}
 			}
-		endloop: cout;
+		nextchar: cout;
 		}
 	}
 	cout << count;
